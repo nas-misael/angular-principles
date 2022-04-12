@@ -1,0 +1,33 @@
+<h1 class="text-success text-center">Diretivas Angular</h1>
+
+<!-- Diretivas de Atributo -->
+
+<div
+  [ngStyle]="{ background: count > 5 ? 'red' : 'green' }"
+  [ngClass]="{ custom: count > 5 }"
+>
+  <h2 class="text-center">Contador: {{ count }}</h2>
+</div>
+
+<!-- Diretivas Estruturais -->
+<h2 *ngIf="count > 7; else menor" class="text-center">O contador passou de 7!</h2>
+
+<ng-template #menor >
+  <h2 class="text-center">O contador é menor que 7!</h2>
+</ng-template>
+
+<h2 class="text-center">Switch</h2>
+<ul class="list-group mx-auto col-3" [ngSwitch]="count">
+  <li class="list-group-item" *ngSwitchCase="3">É igual a 3</li>
+  <li class="list-group-item" *ngSwitchCase="5">É igual a 5</li>
+  <li class="list-group-item" *ngSwitchCase="7">É igual a 7</li>
+  <li class="list-group-item" *ngSwitchCase="9">É igual a 9</li>
+  <li class="list-group-item" *ngSwitchDefault="">Default : {{ count }}</li>
+</ul>
+
+<h2 class="text-center">Iteração com for</h2>
+<ul class="list-group mx-auto col-3">
+  <li class="list-group-item" *ngFor="let pessoa of pessoas">
+    {{pessoa.nome}} - {{pessoa.sobrenome}}
+  </li>
+</ul>
